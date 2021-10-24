@@ -21,7 +21,7 @@
     "**/*.tsx",
     "src/pages/_document.js",
     "src/lib/theme.js",
-    "src/components/section.js"
+    "src/components/section.tsx"
   ],
   "exclude": ["node_modules"]
 }
