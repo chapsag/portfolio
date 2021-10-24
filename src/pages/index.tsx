@@ -3,15 +3,17 @@ import {
   Box,
   Button,
   Heading,
-  Image,
   useColorModeValue
 } from '@chakra-ui/react'
+import { ChevronRightIcon } from '@chakra-ui/icons'
+
 import Section from '../components/section'
 import Paragraph from '../components/paragraph'
 import Layout from '../components/layouts/article'
-import NextLink from 'next/link'
-import { ChevronRightIcon } from '@chakra-ui/icons'
 import { BioSection, BioYear } from '../components/bio'
+import QRcode from '../components/qr-code'
+
+import NextLink from 'next/link'
 
 const Page = () => {
   return (
@@ -26,29 +28,22 @@ const Page = () => {
         >
           Hello, I&apos;m a Belgium developer based in Montreal, CA.
         </Box>
+
         <Box display={{ md: 'flex' }}>
-          <Box flexGrow={1}>
+          <Box
+            flexShrink={0}
+            mt={{ base: 4, md: 0 }}
+            ml={{ md: 0 }}
+            mr={{ md: 14 }}
+            align="center"
+          >
+            <QRcode />
+          </Box>
+          <Box flexGrow={1} align="center">
             <Heading as="h2" variant="page-title">
               Pierre-Emmanuel Goffi
             </Heading>
             <p>Cloud architect/developer</p>
-          </Box>
-          <Box
-            flexShrink={0}
-            mt={{ base: 4, md: 0 }}
-            ml={{ md: 6 }}
-            align="center"
-          >
-            <Image
-              borderColor="witheAlpha.800"
-              borderWidth={2}
-              borderStyle="solid"
-              maxWidth="100px"
-              display="inline-block"
-              borderRadius="full"
-              src="/pierre-emmanuel.png"
-              alt="Profile picture"
-            />
           </Box>
         </Box>
         <Section delay={0.1}>
