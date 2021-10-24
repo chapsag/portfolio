@@ -35,7 +35,8 @@ const components = {
 }
 
 const fonts = {
-  heading: "'M PLUS Rounded 1c'"
+  heading: 'Work Sans',
+  body: 'Work Sans'
 }
 
 const colors = {
