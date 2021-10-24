@@ -20,7 +20,8 @@
     "**/*.ts",
     "**/*.tsx",
     "src/pages/_document.js",
-    "src/lib/theme.js"
+    "src/lib/theme.js",
+    "src/components/section.js"
   ],
   "exclude": ["node_modules"]
 }
