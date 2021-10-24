@@ -116,9 +116,9 @@ Pierre-Emmanuel Goffi - [@Pierre-Emmanuel](https://www.linkedin.com/in/pierre-em
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 
-[forks-shield]: https://img.shields.io/github/forks/othneildrew/Best-README-Template.svg?style=for-the-badge
+[forks-shield]: https://img.shields.io/github/forks/chapsag/portfolio.svg?style=for-the-badge
 [forks-url]: https://github.com/chapsag/portfolio/network/members
-[stars-shield]: https://img.shields.io/github/stars/othneildrew/Best-README-Template.svg?style=for-the-badge
+[stars-shield]: https://img.shields.io/github/stars/chapsag/portfolio.svg?style=for-the-badge
 [stars-url]: https://github.com/chapsag/portfolio/stargazers
 [license-shield]: https://img.shields.io/github/license/othneildrew/Best-README-Template.svg?style=for-the-badge
 [license-url]: https://github.com/git/git-scm.com/blob/main/MIT-LICENSE.txt
