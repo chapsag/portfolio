@@ -16,7 +16,6 @@ import {
 } from '@chakra-ui/react'
 import { HamburgerIcon } from '@chakra-ui/icons'
 import ThemeToggleButton from './theme-toggle-button'
-import QRcode from './qr-code'
 
 type LinkItemProps = {
   path: string
@@ -77,7 +76,7 @@ const Navbar = (props: NavbarProps) => {
           width={{ base: 'full', md: 'auto' }}
           alignItems="center"
           flexGrow={1}
-          mt={{ base: 4, nmd: 0 }}
+          mt={{ base: 4, md: 0 }}
         >
           <LinkItem href="/works" path={path}>
             Works
@@ -105,9 +104,6 @@ const Navbar = (props: NavbarProps) => {
                 </NextLink>
                 <NextLink href="/works" passHref>
                   <MenuItem as={Link}>Works</MenuItem>
-                </NextLink>
-                <NextLink href="/cv" passHref>
-                  <MenuItem as={Link}>CV</MenuItem>
                 </NextLink>
                 <NextLink href="https://github.com/chapsag/portfolio" passHref>
                   <MenuItem as={Link}>View Source</MenuItem>
