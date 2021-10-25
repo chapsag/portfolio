@@ -85,9 +85,9 @@ const Navbar = (props: NavbarProps) => {
           <LinkItem href="/CV" path={path}>
             CV
           </LinkItem>
-          <LinkItem href="https://github.com/chapsag/portfolio" path={path}>
+          <NextLink href="https://github.com/chapsag/portfolio">
             View Source
-          </LinkItem>
+          </NextLink>
         </Stack>
         <Box flex={1} align="right">
           <ThemeToggleButton />

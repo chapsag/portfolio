@@ -17,16 +17,6 @@ const Works = () => {
               A grocery delivery platform
             </WorkGridItem>
           </Section>
-          <Section>
-            <WorkGridItem id="piknix" title="piknix" thumbnail={piknix}>
-              A grocery delivery platform
-            </WorkGridItem>
-          </Section>
-          <Section>
-            <WorkGridItem id="piknix" title="piknix" thumbnail={piknix}>
-              A grocery delivery platform
-            </WorkGridItem>
-          </Section>
         </SimpleGrid>
       </Container>
     </Layout>
