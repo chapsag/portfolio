@@ -3,7 +3,8 @@ import {
   Box,
   Button,
   Heading,
-  useColorModeValue
+  useColorModeValue,
+  Image
 } from '@chakra-ui/react'
 import { ChevronRightIcon } from '@chakra-ui/icons'
 import Section from '../components/section'
@@ -22,9 +23,11 @@ const Page = () => {
           bg={useColorModeValue('#6E8387', '#C8D3D5')}
           p={3}
           mb={6}
+          m={5}
           align="center"
+          textColor={useColorModeValue('white', 'black')}
         >
-          Hello, I&apos;m a Belgium developer based in Montreal, CA.
+          Hello, I&apos;m a Belgian developer based in Montreal, CA.
         </Box>
 
         <Box display={{ md: 'flex' }}>
@@ -48,8 +51,11 @@ const Page = () => {
             Work
           </Heading>
           <Paragraph>
-            I am a student in Computer Vision and Entrepreneur based in Montreal
-            with two years experience in the software industry.
+            I am a student in Computer Vision at University of Sherbrooke and
+            Entrepreneur based in Montreal with two(2) years experience in the
+            software industry. I joined a company called piknix in 2021. We are
+            currently working on a groceries delivery application. Check out my
+            Portfolio !
           </Paragraph>
           <Box align="center" my={4}>
             <NextLink href="/works">
@@ -68,7 +74,7 @@ const Page = () => {
             Born in Belgium, I moved to Canada in 2016.
           </BioSection>
           <BioSection>
-            <BioYear>2021</BioYear>
+            <BioYear>December 2021</BioYear>
             Completed my Bachelor in Computer Vision at the University of
             Sherbrooke.
           </BioSection>
@@ -76,6 +82,12 @@ const Page = () => {
             <BioYear>2021 to present</BioYear>
             Works as a Cloud Architect at piknix.
           </BioSection>
+        </Section>
+        <Section delay={0.3}>
+          <Heading as="h3" variant="section-title">
+            Github chart
+          </Heading>
+          <Box align="center" my={4}></Box>
         </Section>
       </Container>
     </Layout>

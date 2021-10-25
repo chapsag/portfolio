@@ -1,4 +1,4 @@
-import styled from '@emotion/styled'
+import styled, { StyledComponent } from '@emotion/styled'
 
 export const LogoBox = styled.span`
   font-weight: bold;

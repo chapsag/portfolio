@@ -37,7 +37,7 @@ const QRcode = () => {
           <Image
             borderColor="witheAlpha.800"
             src="/pierre-emmanuel.png"
-            alt="QR code"
+            alt="profile photo"
             borderWidth={2}
             borderStyle="solid"
             maxWidth="100px"
