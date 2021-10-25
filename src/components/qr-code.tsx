@@ -1,6 +1,6 @@
 import { AnimatePresence, motion } from 'framer-motion'
 import { useState } from 'react'
-import { Image } from '@chakra-ui/react'
+import { Image, Text, Container } from '@chakra-ui/react'
 
 const variants = {
   open: { opacity: 1, x: 0 },
@@ -17,18 +17,22 @@ const QRcode = () => {
         initial="closed"
         animate={isOpen ? 'open' : 'closed'}
         onClick={() => setIsOpen(!isOpen)}
+        whileHover={{ scale: 1.1 }}
       >
         {isOpen ? (
-          <Image
-            borderColor="witheAlpha.800"
-            src="/linkedin.png"
-            alt="QR code"
-            borderWidth={2}
-            borderStyle="solid"
-            maxWidth="100px"
-            display="inline-block"
-            borderRadius="md"
-          />
+          <Container>
+            <Image
+              borderColor="witheAlpha.800"
+              src="/linkedin.png"
+              alt="QR code"
+              borderWidth={2}
+              borderStyle="solid"
+              maxWidth="100px"
+              display="inline-block"
+              borderRadius="md"
+            />
+            <Text>Get my linkedin</Text>
+          </Container>
         ) : (
           <Image
             borderColor="witheAlpha.800"
