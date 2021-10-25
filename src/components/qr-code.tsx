@@ -4,7 +4,7 @@ import { Image } from '@chakra-ui/react'
 
 const variants = {
   open: { opacity: 1, x: 0 },
-  closed: { opacity: 1, x: '0' }
+  closed: { opacity: 1, x: 0 }
 }
 
 const QRcode = () => {

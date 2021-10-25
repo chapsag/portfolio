@@ -33,13 +33,12 @@ const Page = () => {
           <Box
             flexShrink={0}
             mt={{ base: 4, md: 0 }}
-            ml={{ md: 0 }}
             mr={{ md: 14 }}
             align="center"
           >
             <QRcode />
           </Box>
-          <Box flexGrow={1} align="center">
+          <Box flexGrow={1} align="center" pt={{ md: 5 }}>
             <Heading as="h2" variant="page-title">
               Pierre-Emmanuel Goffi
             </Heading>
@@ -47,7 +46,7 @@ const Page = () => {
           </Box>
         </Box>
         <Section delay={0.1}>
-          <Heading as="h3" variant="section-title">
+          <Heading as="h3" variant="section-title" mt={{ md: 5 }}>
             Work
           </Heading>
           <Paragraph>
