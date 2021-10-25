@@ -23,7 +23,7 @@ const Page = () => {
           bg={useColorModeValue('#6E8387', '#C8D3D5')}
           p={3}
           mb={6}
-          m={5}
+          mt={35}
           align="center"
           textColor={useColorModeValue('white', 'black')}
         >

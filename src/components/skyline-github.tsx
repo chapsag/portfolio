@@ -2,7 +2,7 @@ import { useState, useEffect, useRef, useCallback } from 'react'
 import { Box, Spinner } from '@chakra-ui/react'
 import * as THREE from 'three'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
-import { loadSTL } from '../lib/model'
+import { loadSTL } from '../lib/loader'
 
 function easeOutCirc(t: number) {
   return Math.sqrt(1 - Math.pow(t - 1, 4))
@@ -12,7 +12,7 @@ const SkylineGithub = () => {
   const refContainer = useRef<HTMLDivElement>(null)
   const [loading, setLoading] = useState(true)
   const [renderer, setRenderer] = useState<THREE.WebGLRenderer | null>(null)
-  const [_camera, setCamera] = useState<THREE.OrthographicCamera | null>(null)
+  const [_camera, setCamera] = useState<THREE.PerspectiveCamera | null>(null)
   const [target] = useState(new THREE.Vector3(-0.5, 1.2, 0))
   /*const [initalCameraPosition] = useState(
     new THREE.Vector3( 
@@ -22,7 +22,7 @@ const SkylineGithub = () => {
     )
   ) */
 
-  const [initalCameraPosition] = useState(new THREE.Vector3(1, 1, -100))
+  const [initalCameraPosition] = useState(new THREE.Vector3(200, 100, 0))
 
   const [scene] = useState(new THREE.Scene())
   const [_controls, setControls] = useState<OrbitControls | null>(null)
@@ -56,34 +56,39 @@ const SkylineGithub = () => {
 
       // 640 -> 240
       // 8 -> 6
-      const scale = scH * 0.005 + 4.8
+      /* const scale = scH * 0.005 + 4.8
       const camera = new THREE.OrthographicCamera(
         -scale,
         scale,
         scale,
         -scale,
         0.01,
-        50000
+        100000
+      )
+      */
+      const camera = new THREE.PerspectiveCamera(
+        60,
+        window.innerWidth / window.innerHeight,
+        1,
+        1000
       )
       camera.position.copy(initalCameraPosition)
       camera.lookAt(target)
       setCamera(camera)
 
-      const ambientLight = new THREE.AmbientLight(0xcccccc, 1)
+      const ambientLight = new THREE.AmbientLight(0xcccccc, 10)
       scene.add(ambientLight)
 
       const controls = new OrbitControls(camera, renderer.domElement)
       controls.autoRotate = true
       controls.target = target
-      setControls(controls)
 
-      /*loadSTL(scene, '/chapsag-2021.stl', {
-        receiveShadow: false,
-        castShadow: false
-      }).then(() => {
-        animate()
-        setLoading(false)
-      }) */
+      controls.minDistance = 100
+      controls.maxDistance = 500
+
+      controls.maxPolarAngle = Math.PI / 2
+
+      setControls(controls)
 
       loadSTL(scene, '/chapsag-2021.stl').then(() => {
         animate()
@@ -97,20 +102,24 @@ const SkylineGithub = () => {
         req = requestAnimationFrame(animate)
         frame = frame <= 100 ? frame + 1 : frame
 
-        if (frame <= 100) {
+        /*if (frame <= 100) {
           const t = initalCameraPosition
-          const rotSpeed = -easeOutCirc(frame / 120) * Math.PI * 20
+          const rotSpeed = -easeOutCirc(frame / 360) * Math.PI * 20
           camera.position.y = 10
           camera.position.x =
             t.x * Math.cos(rotSpeed) + t.z * Math.sin(rotSpeed)
           camera.position.z =
             t.z * Math.cos(rotSpeed) - t.x * Math.sin(rotSpeed)
           camera.lookAt(target)
-        } else {
-          controls.update()
-        }
+        } else { */
+        controls.update()
+        //}
 
         renderer.render(scene, camera)
+        console.log('position')
+        console.log(camera.position)
+        console.log('rotation')
+        console.log(camera.rotation)
       }
 
       return () => {
