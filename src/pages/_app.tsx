@@ -1,13 +1,16 @@
 import type { AppProps } from 'next/app'
+import type { ReactElement } from 'react'
 import { ChakraProvider } from '@chakra-ui/react'
 import Layout from '../components/layouts/main'
 import { AnimatePresence } from 'framer-motion'
 import theme from '../lib/theme'
 import Fonts from '../lib/fonts'
 
-// Component is the page view that will be rendered
-// pageProps is props that each page will receive when rendered
-const Portfolio = ({ Component, pageProps, router }: AppProps) => {
+const Portfolio = ({
+  Component,
+  pageProps,
+  router
+}: AppProps): ReactElement => {
   return (
     <ChakraProvider theme={theme}>
       <Fonts />
