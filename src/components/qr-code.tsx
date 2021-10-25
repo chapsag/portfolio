@@ -31,7 +31,7 @@ const QRcode = () => {
               display="inline-block"
               borderRadius="md"
             />
-            <Text>Get my linkedin</Text>
+            <Text>Connect with me!</Text>
           </Container>
         ) : (
           <Image
