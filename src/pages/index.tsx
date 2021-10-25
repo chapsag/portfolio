@@ -6,13 +6,11 @@ import {
   useColorModeValue
 } from '@chakra-ui/react'
 import { ChevronRightIcon } from '@chakra-ui/icons'
-
 import Section from '../components/section'
 import Paragraph from '../components/paragraph'
 import Layout from '../components/layouts/article'
 import { BioSection, BioYear } from '../components/bio'
 import QRcode from '../components/qr-code'
-
 import NextLink from 'next/link'
 
 const Page = () => {
