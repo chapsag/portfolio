@@ -1,5 +1,7 @@
 import Head from 'next/head'
 import Navbar from '../navbar'
+import SkylineGithub from '../skyline-github'
+import NoSsr from '../utils/no-ssr'
 import { Box, Container } from '@chakra-ui/react'
 import type { NextRouter } from 'next/router'
 
@@ -17,6 +19,9 @@ const Main = ({ children, router }: MainProps) => {
       </Head>
       <Navbar path={router.asPath} />
       <Container maxW="container.md" pt={14}>
+        <NoSsr>
+          <SkylineGithub />
+        </NoSsr>
         {children}
       </Container>
     </Box>
