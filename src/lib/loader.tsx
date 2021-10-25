@@ -1,17 +1,14 @@
 import { STLLoader } from 'three/examples/jsm/loaders/STLLoader.js'
 import * as THREE from 'three'
 
-export function loadSTL(
-  scene,
-  glbPath
-  //options = { receiveShadow: true, castShadow: true }
-) {
-  //const { receiveShadow, castShadow } = options
+export function loadSTL(scene: THREE.Scene, path: string): Promise<THREE.Mesh> {
+  const light = new THREE.SpotLight()
+  light.position.set(20, 20, 20)
+  scene.add(light)
+
   return new Promise((resolve, reject) => {
     const material = new THREE.MeshPhysicalMaterial({
       color: 0x2c3fea,
-      specular: 0x111111,
-      shininess: 200,
       metalness: 0.25,
       roughness: 1,
       opacity: 1.0,
@@ -23,7 +20,7 @@ export function loadSTL(
 
     const loader = new STLLoader()
     loader.load(
-      glbPath,
+      path,
       function (geometry) {
         const mesh = new THREE.Mesh(geometry, material)
         scene.add(mesh)
@@ -34,26 +31,8 @@ export function loadSTL(
       },
       error => {
         console.error(error)
+        reject(error)
       }
     )
   })
 }
-
-/*glbPath,
-        sltf => {
-        const obj = sltf.scene
-        obj.name = 'chapsag-2021'
-        obj.position.y = 0
-        obj.position.x = 0
-        obj.receiveShadow = receiveShadow
-        obj.castShadow = castShadow
-        scene.add(obj)
-
-        obj.traverse(function (child) {
-          if (child.isMesh) {
-            child.castShadow = castShadow
-            child.receiveShadow = receiveShadow
-          }
-        })
-        resolve(obj) 
-      } */
