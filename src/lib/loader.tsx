@@ -19,7 +19,7 @@ export function loadSTL(scene: THREE.Scene, path: string): Promise<THREE.Mesh> {
         const mesh = new THREE.Mesh(geometry, material)
 
         scene.add(mesh)
-        scene.background = new THREE.Color(0xffffff)
+        scene.background = new THREE.Color(0x444444)
 
         const xAxis = new THREE.Vector3(1, 0, 0)
         const zAxis = new THREE.Vector3(0, 0, 1)

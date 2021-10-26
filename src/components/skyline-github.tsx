@@ -10,7 +10,7 @@ const SkylineGithub = () => {
   const [renderer, setRenderer] = useState<THREE.WebGLRenderer | null>(null)
   const [_camera, setCamera] = useState<THREE.PerspectiveCamera | null>(null)
   const [target] = useState(new THREE.Vector3(0, 0, 0))
-  const [initalCameraPosition] = useState(new THREE.Vector3(-700, 300, 300))
+  const [initalCameraPosition] = useState(new THREE.Vector3(-700, 0, 300))
   const [scene] = useState(new THREE.Scene())
   const [_controls, setControls] = useState<OrbitControls | null>(null)
 
@@ -49,11 +49,11 @@ const SkylineGithub = () => {
       setCamera(camera)
 
       // LIGHTS
-      const skyColor = 0xb1e1ff // light blue
-      const groundColor = 0xb97a20 // brownish orange
-      const intensity = 1
-      const light = new THREE.HemisphereLight(skyColor, groundColor, intensity)
+      const light = new THREE.HemisphereLight(0xd90368, 0x64a6bd, 10)
       scene.add(light)
+      scene.add(light)
+      var frontLight = new THREE.DirectionalLight(0xffffff, 1)
+      scene.add(frontLight)
 
       // CONTROLS
       const controls = new OrbitControls(camera, renderer.domElement)
@@ -108,6 +108,8 @@ const SkylineGithub = () => {
       maxH={['100', '200', '300']}
       maxW={['100', '400', '500']}
       position="relative"
+      border={['1px solid', '2px solid', '3px solid']}
+      borderColor="gray.200"
     >
       {loading && (
         <Spinner
