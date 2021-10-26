@@ -5,7 +5,7 @@ import GridItemProps from './type'
 
 const WorkGridItem = ({ children, id, title, thumbnail }: GridItemProps) => {
   return (
-    <Box w="100%" align="center">
+    <Box w="100%" textAlign="center">
       <NextLink href={`/works/${id}`}>
         <LinkBox cursor="pointer">
           <Image

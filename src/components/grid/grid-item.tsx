@@ -11,7 +11,7 @@ export const GridItem = ({
   thumbnail
 }: GridItemProps) => {
   return (
-    <Box w="100%" align="center">
+    <Box w="100%" textAlign="center">
       <LinkBox cursor="pointer">
         <Image
           src={thumbnail}
