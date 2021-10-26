@@ -15,11 +15,11 @@ const WorkGridItem = ({ children, id, title, thumbnail }: GridItemProps) => {
             placeholder="blur"
           />
           <LinkOverlay href={`/works/${id}`}>
-            <Text mt={2} fontsize={20}>
+            <Text mt={2} fontSize={20}>
               {title}
             </Text>
           </LinkOverlay>
-          <Text fontsize={14}> {children} </Text>
+          <Text fontSize={14}> {children} </Text>
         </LinkBox>
       </NextLink>
     </Box>

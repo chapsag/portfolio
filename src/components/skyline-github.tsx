@@ -78,10 +78,7 @@ const SkylineGithub = () => {
         frame = frame <= 100 ? frame + 1 : frame
 
         controls.update()
-
         renderer.render(scene, camera)
-        console.log('rotation')
-        console.log(camera.rotation)
       }
 
       return () => {
@@ -100,6 +97,7 @@ const SkylineGithub = () => {
 
   return (
     <Box
+      cursor="pointer"
       ref={refContainer}
       className="skyline-github"
       m="auto"

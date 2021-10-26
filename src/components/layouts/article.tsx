@@ -4,7 +4,7 @@ import { GridItemStyle } from '../grid/grid-item'
 
 type LayoutProps = {
   children: React.ReactNode
-  title?: string
+  title: string
 }
 
 const variants = {

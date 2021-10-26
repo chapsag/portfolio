@@ -16,27 +16,41 @@ import {
 } from '@chakra-ui/react'
 import { HamburgerIcon } from '@chakra-ui/icons'
 import ThemeToggleButton from './theme-toggle-button'
+import { IoLogoGithub } from 'react-icons/io5'
 
 type LinkItemProps = {
   path: string
   href: string
+  _target?: string
   children: React.ReactNode
+  display?: string
+  alignItems?: string
+  style?: { gap: number }
+  pl?: number
+  rel?: string
 }
 
 type NavbarProps = {
   path: string
 }
 
-const LinkItem = ({ href, path, children }: LinkItemProps) => {
+const LinkItem = ({
+  href,
+  path,
+  _target,
+  children,
+  ...props
+}: LinkItemProps) => {
   const active = path === href
-  const inactiveColor = useColorModeValue('gray200', 'witheAlpha.900')
-
+  const inactiveColor = useColorModeValue('gray.200', 'whiteAlpha.900')
   return (
-    <NextLink href={href}>
+    <NextLink href={href} passHref>
       <Link
         p={2}
-        bg={active ? 'glassTeal' : undefined}
-        color={active ? '#202023' : inactiveColor}
+        bg={active ? 'grassTeal' : undefined}
+        color={active ? inactiveColor : inactiveColor}
+        _target={_target}
+        {...props}
       >
         {children}
       </Link>
@@ -70,6 +84,7 @@ const Navbar = (props: NavbarProps) => {
             <Logo />
           </Heading>
         </Flex>
+
         <Stack
           direction={{ base: 'column', md: 'row' }}
           display={{ base: 'none', md: 'flex' }}
@@ -81,9 +96,19 @@ const Navbar = (props: NavbarProps) => {
           <LinkItem href="/works" path={path}>
             Works
           </LinkItem>
-          <NextLink href="https://github.com/chapsag/portfolio">
-            View Source
-          </NextLink>
+          <LinkItem
+            _target="_blank"
+            rel="noopener noreferrer"
+            href="https://github.com/chapsag/portfolio"
+            path={path}
+            display="inline-flex"
+            alignItems="center"
+            style={{ gap: 4 }}
+            pl={2}
+          >
+            <IoLogoGithub />
+            Source
+          </LinkItem>
         </Stack>
         <Box flex={1} align="right">
           <ThemeToggleButton />
