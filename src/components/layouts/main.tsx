@@ -19,9 +19,6 @@ const Main = ({ children, router }: MainProps) => {
       </Head>
       <Navbar path={router.asPath} />
       <Container maxW="container.md" pt={14}>
-        <NoSsr>
-          <SkylineGithub />
-        </NoSsr>
         {children}
       </Container>
     </Box>

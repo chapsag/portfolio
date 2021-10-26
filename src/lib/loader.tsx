@@ -5,15 +5,9 @@ export function loadSTL(scene: THREE.Scene, path: string): Promise<THREE.Mesh> {
   return new Promise((resolve, reject) => {
     const material = new THREE.MeshPhysicalMaterial({
       color: 0x2c3fea,
-      //color: 0xffffff,
-      metalness: 0.25,
-      roughness: 1,
-      opacity: 1.0,
-      transparent: false,
-      transmission: 0.99,
-      clearcoat: 1.0,
-      clearcoatRoughness: 0.25,
-      wireframe: true
+      wireframe: true,
+      wireframeLinewidth: 2,
+      clearcoat: 1
     })
 
     const loader = new STLLoader()

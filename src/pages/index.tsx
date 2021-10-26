@@ -3,8 +3,7 @@ import {
   Box,
   Button,
   Heading,
-  useColorModeValue,
-  Image
+  useColorModeValue
 } from '@chakra-ui/react'
 import { ChevronRightIcon } from '@chakra-ui/icons'
 import Section from '../components/section'
@@ -13,10 +12,19 @@ import Layout from '../components/layouts/article'
 import { BioSection, BioYear } from '../components/bio'
 import QRcode from '../components/qr-code'
 import NextLink from 'next/link'
+import NoSsr from '../components/utils/no-ssr'
+import SkylineGithub from '../components/skyline-github'
 
 const Page = () => {
   return (
     <Layout>
+      <Section delay={0.1}>
+        <Box align="center" my={4}>
+          <NoSsr>
+            <SkylineGithub />
+          </NoSsr>
+        </Box>
+      </Section>
       <Container>
         <Box
           borderRadius="lg"
@@ -82,12 +90,6 @@ const Page = () => {
             <BioYear>2021 to present</BioYear>
             Works as a Cloud Architect at piknix.
           </BioSection>
-        </Section>
-        <Section delay={0.3}>
-          <Heading as="h3" variant="section-title">
-            Github chart
-          </Heading>
-          <Box align="center" my={4}></Box>
         </Section>
       </Container>
     </Layout>

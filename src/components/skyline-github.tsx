@@ -10,7 +10,7 @@ const SkylineGithub = () => {
   const [renderer, setRenderer] = useState<THREE.WebGLRenderer | null>(null)
   const [_camera, setCamera] = useState<THREE.PerspectiveCamera | null>(null)
   const [target] = useState(new THREE.Vector3(0, 0, 0))
-  const [initalCameraPosition] = useState(new THREE.Vector3(200, 100, 0))
+  const [initalCameraPosition] = useState(new THREE.Vector3(-700, 300, 300))
   const [scene] = useState(new THREE.Scene())
   const [_controls, setControls] = useState<OrbitControls | null>(null)
 
@@ -31,9 +31,6 @@ const SkylineGithub = () => {
       const scW = container.clientWidth
       const scH = container.clientHeight
 
-      const diffuseColor = new THREE.Color()
-      const specularColor = new THREE.Color()
-
       const renderer = new THREE.WebGLRenderer({
         antialias: true,
         alpha: true
@@ -45,42 +42,24 @@ const SkylineGithub = () => {
       setRenderer(renderer)
 
       const camera = new THREE.PerspectiveCamera(
-        45,
-        window.innerWidth / window.innerHeight,
-        1,
-        80000
-      )
-
-      camera.position.set(-800, 600, 300)
-
-      // LIGHTS
-      let ambientLight = new THREE.AmbientLight(0x333333) // 0.2
-
-      let light = new THREE.DirectionalLight(0xffffff, 1.0)
-
-      /*const camera = new THREE.PerspectiveCamera(
-        60,
-        window.innerWidth / window.innerHeight,
-        1,
-        1000
+        30,
+        container.clientWidth / container.clientHeight
       )
       camera.position.copy(initalCameraPosition)
-      camera.lookAt(target)
-      setCamera(camera) */
+      setCamera(camera)
 
+      // LIGHTS
+      let ambientLight = new THREE.AmbientLight(0x333333)
+      let light = new THREE.DirectionalLight(0xffffff, 1.0)
       scene.add(ambientLight)
       scene.add(light)
 
-      //const ambientLight = new THREE.AmbientLight(0xcccccc, 10)
-      //scene.add(ambientLight)
-
+      // CONTROLS
       const controls = new OrbitControls(camera, renderer.domElement)
       controls.autoRotate = true
       controls.target = target
-
-      controls.minDistance = 200
-      controls.maxDistance = 300
-
+      controls.minDistance = 100
+      controls.maxDistance = 200
       controls.maxPolarAngle = Math.PI / 2
 
       setControls(controls)
@@ -123,10 +102,10 @@ const SkylineGithub = () => {
       ref={refContainer}
       className="skyline-github"
       m="auto"
-      mt={['-20px', '-60px', '-120px']}
-      mb={['-40px', '-140px', '-200px']}
-      w={[280, 480, 640]}
-      h={[280, 480, 640]}
+      w={[280, 480, 480]}
+      h={[280, 480, 480]}
+      maxH={['100', '200', '300']}
+      maxW={['100', '400', '500']}
       position="relative"
     >
       {loading && (
