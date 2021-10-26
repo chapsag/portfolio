@@ -4,26 +4,13 @@ import * as THREE from 'three'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
 import { loadSTL } from '../lib/loader'
 
-function easeOutCirc(t: number) {
-  return Math.sqrt(1 - Math.pow(t - 1, 4))
-}
-
 const SkylineGithub = () => {
   const refContainer = useRef<HTMLDivElement>(null)
   const [loading, setLoading] = useState(true)
   const [renderer, setRenderer] = useState<THREE.WebGLRenderer | null>(null)
   const [_camera, setCamera] = useState<THREE.PerspectiveCamera | null>(null)
-  const [target] = useState(new THREE.Vector3(-0.5, 1.2, 0))
-  /*const [initalCameraPosition] = useState(
-    new THREE.Vector3( 
-      0 * Math.sin(0.2 * Math.PI), x
-      10, y
-      0 * Math.cos(0.2 * Math.PI) z
-    )
-  ) */
-
+  const [target] = useState(new THREE.Vector3(0, 0, 0))
   const [initalCameraPosition] = useState(new THREE.Vector3(200, 100, 0))
-
   const [scene] = useState(new THREE.Scene())
   const [_controls, setControls] = useState<OrbitControls | null>(null)
 
@@ -44,6 +31,9 @@ const SkylineGithub = () => {
       const scW = container.clientWidth
       const scH = container.clientHeight
 
+      const diffuseColor = new THREE.Color()
+      const specularColor = new THREE.Color()
+
       const renderer = new THREE.WebGLRenderer({
         antialias: true,
         alpha: true
@@ -54,19 +44,21 @@ const SkylineGithub = () => {
       container.appendChild(renderer.domElement)
       setRenderer(renderer)
 
-      // 640 -> 240
-      // 8 -> 6
-      /* const scale = scH * 0.005 + 4.8
-      const camera = new THREE.OrthographicCamera(
-        -scale,
-        scale,
-        scale,
-        -scale,
-        0.01,
-        100000
-      )
-      */
       const camera = new THREE.PerspectiveCamera(
+        45,
+        window.innerWidth / window.innerHeight,
+        1,
+        80000
+      )
+
+      camera.position.set(-800, 600, 300)
+
+      // LIGHTS
+      let ambientLight = new THREE.AmbientLight(0x333333) // 0.2
+
+      let light = new THREE.DirectionalLight(0xffffff, 1.0)
+
+      /*const camera = new THREE.PerspectiveCamera(
         60,
         window.innerWidth / window.innerHeight,
         1,
@@ -74,17 +66,20 @@ const SkylineGithub = () => {
       )
       camera.position.copy(initalCameraPosition)
       camera.lookAt(target)
-      setCamera(camera)
+      setCamera(camera) */
 
-      const ambientLight = new THREE.AmbientLight(0xcccccc, 10)
       scene.add(ambientLight)
+      scene.add(light)
+
+      //const ambientLight = new THREE.AmbientLight(0xcccccc, 10)
+      //scene.add(ambientLight)
 
       const controls = new OrbitControls(camera, renderer.domElement)
       controls.autoRotate = true
       controls.target = target
 
-      controls.minDistance = 100
-      controls.maxDistance = 500
+      controls.minDistance = 200
+      controls.maxDistance = 300
 
       controls.maxPolarAngle = Math.PI / 2
 
@@ -102,22 +97,9 @@ const SkylineGithub = () => {
         req = requestAnimationFrame(animate)
         frame = frame <= 100 ? frame + 1 : frame
 
-        /*if (frame <= 100) {
-          const t = initalCameraPosition
-          const rotSpeed = -easeOutCirc(frame / 360) * Math.PI * 20
-          camera.position.y = 10
-          camera.position.x =
-            t.x * Math.cos(rotSpeed) + t.z * Math.sin(rotSpeed)
-          camera.position.z =
-            t.z * Math.cos(rotSpeed) - t.x * Math.sin(rotSpeed)
-          camera.lookAt(target)
-        } else { */
         controls.update()
-        //}
 
         renderer.render(scene, camera)
-        console.log('position')
-        console.log(camera.position)
         console.log('rotation')
         console.log(camera.rotation)
       }
