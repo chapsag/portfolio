@@ -60,7 +60,7 @@ const Page = () => {
           </Heading>
           <Paragraph>
             I am a student in Computer Vision at University of Sherbrooke and
-            Entrepreneur based in Montreal with two(2) years experience in the
+            Entrepreneur based in Montreal with two years experience in the
             software industry. I joined a company called piknix in 2021. We are
             currently working on a groceries delivery application. Check out my
             Portfolio !
@@ -82,13 +82,12 @@ const Page = () => {
             Born in Belgium, I moved to Canada in 2016.
           </BioSection>
           <BioSection>
-            <BioYear>December 2021</BioYear>
-            Completed my Bachelor in Computer Vision at the University of
-            Sherbrooke.
+            <BioYear>2021</BioYear>
+            Learned Computer Vision at the University of Sherbrooke.
           </BioSection>
           <BioSection>
-            <BioYear>2021 to present</BioYear>
-            Works as a Cloud Architect at piknix.
+            <BioYear>Now</BioYear>
+            Work as a Cloud Architect at piknix.
           </BioSection>
         </Section>
       </Container>

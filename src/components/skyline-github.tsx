@@ -49,9 +49,10 @@ const SkylineGithub = () => {
       setCamera(camera)
 
       // LIGHTS
-      let ambientLight = new THREE.AmbientLight(0x333333)
-      let light = new THREE.DirectionalLight(0xffffff, 1.0)
-      scene.add(ambientLight)
+      const skyColor = 0xb1e1ff // light blue
+      const groundColor = 0xb97a20 // brownish orange
+      const intensity = 1
+      const light = new THREE.HemisphereLight(skyColor, groundColor, intensity)
       scene.add(light)
 
       // CONTROLS

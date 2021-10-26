@@ -18,54 +18,6 @@ const Works = () => {
             </WorkGridItem>
           </Section>
         </SimpleGrid>
-        <Heading as="h3" fontSize={20} mb={4}>
-          School
-        </Heading>
-        <SimpleGrid column={[1, 1, 2]} gap={6}>
-          <Section>
-            <WorkGridItem id="piknix" title="piknix" thumbnail={piknix}>
-              A grocery delivery platform
-            </WorkGridItem>
-          </Section>
-        </SimpleGrid>
-        <Heading as="h3" fontSize={20} mb={4}>
-          InternShip
-        </Heading>
-        <SimpleGrid column={[1, 1, 2]} gap={6}>
-          <Section>
-            <WorkGridItem id="piknix" title="piknix" thumbnail={piknix}>
-              A grocery delivery platform
-            </WorkGridItem>
-          </Section>
-        </SimpleGrid>
-        <SimpleGrid column={[1, 1, 2]} gap={6}>
-          <Section>
-            <WorkGridItem id="piknix" title="piknix" thumbnail={piknix}>
-              A grocery delivery platform
-            </WorkGridItem>
-          </Section>
-        </SimpleGrid>
-        <SimpleGrid column={[1, 1, 2]} gap={6}>
-          <Section>
-            <WorkGridItem id="piknix" title="piknix" thumbnail={piknix}>
-              A grocery delivery platform
-            </WorkGridItem>
-          </Section>
-        </SimpleGrid>
-        <SimpleGrid column={[1, 1, 2]} gap={6}>
-          <Section>
-            <WorkGridItem id="piknix" title="piknix" thumbnail={piknix}>
-              A grocery delivery platform
-            </WorkGridItem>
-          </Section>
-        </SimpleGrid>
-        <SimpleGrid column={[1, 1, 2]} gap={6}>
-          <Section>
-            <WorkGridItem id="piknix" title="piknix" thumbnail={piknix}>
-              A grocery delivery platform
-            </WorkGridItem>
-          </Section>
-        </SimpleGrid>
       </Container>
     </Layout>
   )
