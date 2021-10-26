@@ -42,7 +42,7 @@ const LinkItem = ({
   ...props
 }: LinkItemProps) => {
   const active = path === href
-  const inactiveColor = useColorModeValue('gray.200', 'whiteAlpha.900')
+  const inactiveColor = useColorModeValue('blackAlpha.900', 'whiteAlpha.900')
   return (
     <NextLink href={href} passHref>
       <Link
