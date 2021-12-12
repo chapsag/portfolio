@@ -15,7 +15,7 @@
   <p align="center">
     Feel free to fork my repo to make your own portfolio 🧙
     <br />
-    <a href="https://app.goffi.dev">goffi.dev<a/>
+    <a href="https://goffi.dev">goffi.dev<a/>
   </p>
 </div>
 
